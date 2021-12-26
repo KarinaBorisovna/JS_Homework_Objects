@@ -22,16 +22,21 @@ Student.prototype.addMark = function (mark) {
 }
 
 Student.prototype.addMarks = function (...marks) {
-  this.marks = []
-  for (let i = 0; i < marks.length; i++) {
-    this.marks.push(marks[i]);
-  } 
+  if(this.marks === undefined){ 
+    this.marks = marks;
+  } else {
+    for (let i = 0; i < marks.length; i++) {
+      this.marks.push(marks[i]);
+    } 
+  }
+  
 }
 
-// student2.addMarks(5, 5, 5);
+// student2.addMarks(5, 4, 5);
+// student2.addMarks(6, 7, 7);
 // student2.addMark(5);
-// student2.setSubject('Math');
-// console.log(student1);
+student2.setSubject('Math');
+console.log(student2);
 
 Student.prototype.getAverage = function() {
   let sum = 0;
